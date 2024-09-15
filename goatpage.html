@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ผลลัพธ์ของแพะ</title>
+</head>
+<body>
+    <h1>ผลลัพธ์ของแพะ</h1>
+    <div id="result"></div>
+    <button id="chaseGoatBtn">ไล่แพะ</button>
+    <a href="index.html">กลับสู่หน้าหลัก</a>
+
+    <script type="module">
+        import { setupGoatButton } from './controller.js';
+
+        // ดึงข้อความจาก URL query
+        const urlParams = new URLSearchParams(window.location.search);
+        const message = urlParams.get('message');
+        
+        if (message) {
+            document.getElementById('result').innerHTML = `<p style="color: blue;">${message}</p>`;
+        }
+
+        // เรียกใช้ฟังก์ชัน setupGoatButton เพื่อจัดการเหตุการณ์การคลิก
+        setupGoatButton();
+    </script>
+</body>
+</html>
